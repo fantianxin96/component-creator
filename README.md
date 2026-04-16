@@ -1,56 +1,66 @@
-# Component Creator — Cursor Skill
+# Component Creator Skill
 
-A generic [Cursor AI](https://cursor.com) skill for building design-system-driven components from scratch. Works with **any design library, any token set, any framework** — not tied to a specific system.
+A universal AI skill for building design-system-driven component libraries.
+Works with Cursor, Claude Code, Windsurf, and any tool that supports SKILL.md.
+Not tied to any specific design system — works with any token set, any framework.
 
-This skill teaches Cursor a three-phase workflow: collect design tokens, build a reusable component CSS library, and generate new components that stay consistent with your established foundation.
+This skill teaches AI coding tools a three-phase workflow: collect design tokens,
+build a reusable component CSS library, and generate new components that stay
+consistent with your established foundation.
 
 ## Available Skills
 
 | Skill | Description |
 |-------|-------------|
-| [component-creator](./component-creator/SKILL.md) | Builds `tokens.css` from designer input, creates reusable `components.css` classes, and generates new components that strictly reference the token system. |
+| [component-creator](./SKILL.md) | Builds `tokens.css` from designer input, creates reusable `components.css` classes, and generates new components that strictly reference the token system. |
 
 ## Installation
 
-### Option 1: Add to a single project
+> **Cursor**
+> ```bash
+> mkdir -p .cursor/skills/component-creator
+> curl -o .cursor/skills/component-creator/SKILL.md \
+>   https://raw.githubusercontent.com/fantianxin96/component-creator/main/SKILL.md
+> ```
 
-```bash
-# From your project root
-mkdir -p .cursor/skills/component-creator
+> **Claude Code**
+> ```bash
+> mkdir -p .claude/skills/component-creator
+> curl -o .claude/skills/component-creator/SKILL.md \
+>   https://raw.githubusercontent.com/fantianxin96/component-creator/main/SKILL.md
+> ```
 
-curl -o .cursor/skills/component-creator/SKILL.md \
-  https://raw.githubusercontent.com/sihansun44/component-creator/main/component-creator/SKILL.md
-```
+> **Windsurf**
+> ```bash
+> mkdir -p .windsurf/rules/component-creator
+> curl -o .windsurf/rules/component-creator/SKILL.md \
+>   https://raw.githubusercontent.com/fantianxin96/component-creator/main/SKILL.md
+> ```
 
-### Option 2: Clone into your project
-
-```bash
-# From your project root
-git clone https://github.com/sihansun44/component-creator.git .cursor/skills
-```
-
-### Option 3: Install globally (all Cursor projects)
-
-```bash
-git clone https://github.com/sihansun44/component-creator.git ~/.cursor/skills/component-creator
-```
+> **Or clone directly into your project**
+> ```bash
+> git clone https://github.com/fantianxin96/component-creator.git
+> ```
 
 ## How It Works
 
 The skill follows three phases:
 
 ### Phase 1 — Token Foundation
-Cursor asks the designer to paste or describe their tokens (colors, typography, spacing, radius, shadows). It generates a clean `tokens.css` with only CSS custom properties — the single source of truth.
+The AI asks you to paste or describe your tokens (colors, typography, spacing,
+radius, shadows). It generates a clean `tokens.css` with only CSS custom
+properties — the single source of truth for all visual decisions.
 
 ### Phase 2 — Component Library
-Cursor creates `components.css` with reusable CSS classes (buttons, cards, badges, forms, etc.) that strictly reference tokens. No hardcoded values.
+The AI creates `components.css` with reusable CSS classes (buttons, cards,
+badges, forms, etc.) that strictly reference tokens. No hardcoded values allowed.
 
 ### Phase 3 — Component Generation
-When building new UI, Cursor reads the token and component files, maps every visual decision to an existing token or class, and outputs consistent code. Any new reusable patterns get added back to `components.css`.
+When building new UI, the AI reads the token and component files, maps every
+visual decision to an existing token or class, and outputs consistent code.
+Any new reusable patterns get added back to `components.css`.
 
 ## File Structure
-
-Once set up, your project will have:
 
 | File | Contains | Rules |
 |------|----------|-------|
@@ -61,9 +71,14 @@ Once set up, your project will have:
 ## What Makes This Different
 
 - **Framework agnostic** — works with React, Vue, Svelte, plain HTML, or anything else
+- **Tool agnostic** — works with Cursor, Claude Code, Windsurf, and any SKILL.md-compatible tool
 - **Library agnostic** — not tied to any specific design system; bring your own tokens
 - **Designer-friendly** — starts from what the designer already has (Figma exports, brand docs, or verbal descriptions)
 - **Self-enforcing** — includes a constraint checklist that prevents hardcoded values from slipping through
+
+## Author
+
+Lilith Fan · UX/UI Designer
 
 ## License
 
